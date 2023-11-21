@@ -3,13 +3,13 @@ Training app with microservices and complete CI/CD Pipeline
 # CI/CD Pipeline Components
 
 1. **Version Control System (VCS):**
-#### Git
+- Git
 
 2. **Code Repository:**
-#### This github repository.
+- This github repository.
 
 3. **CI Server:**
-#### Github Actions
+- Github Actions
 
 4. **Build Automation:**
 
