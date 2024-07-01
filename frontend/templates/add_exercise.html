@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Add Exercise</h2>
+<form method="POST">
+    <div class="form-group">
+        <label for="exercise_type">Exercise Type:</label>
+        <select class="form-control" id="exercise_type" name="exercise_type" required>
+            <option value="COMP">COMP</option>
+            <option value="VARIATION">VARIATION</option>
+            <option value="ACCESSORY">ACCESSORY</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="exercise_name">Exercise Name:</label>
+        <input type="text" class="form-control" id="exercise_name" name="exercise_name" required>
+    </div>
+    <div class="form-group">
+        <label for="user_id">User ID:</label>
+        <input type="number" class="form-control" id="user_id" name="user_id" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Exercise</button>
+</form>
+{% endblock %}

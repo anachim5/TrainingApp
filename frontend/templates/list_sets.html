@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Sets Performed</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Set ID</th>
+            <th>User ID</th>
+            <th>Workout ID</th>
+            <th>Date</th>
+            <th>Exercise ID</th>
+            <th>Weight</th>
+            <th>Repetitions</th>
+            <th>RPE</th>
+            <th>RIR</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for set in sets %}
+        <tr>
+            <td>{{ set.set_id }}</td>
+            <td>{{ set.user_id }}</td>
+            <td>{{ set.workout_id }}</td>
+            <td>{{ set.date }}</td>
+            <td>{{ set.exercise_id }}</td>
+            <td>{{ set.weight }}</td>
+            <td>{{ set.repetitions }}</td>
+            <td>{{ set.RPE }}</td>
+            <td>{{ set.RIR }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
