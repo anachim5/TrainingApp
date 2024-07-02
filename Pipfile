@@ -11,6 +11,10 @@ pydantic = "*"
 install = "*"
 uvicorn = "*"
 requests = "*"
+passlib = "*"
+python-jose = {extras = ["cryptography"], version = "*"}
+jwt = "*"
+pyjwt = "*"
 
 [dev-packages]
 

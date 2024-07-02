@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Blocks</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Block ID</th>
+            <!-- Add any other block attributes you want to display -->
+        </tr>
+    </thead>
+    <tbody>
+        {% for block in blocks %}
+        <tr>
+            <td>{{ block.id }}</td>
+            <!-- Add cells for any other block attributes -->
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

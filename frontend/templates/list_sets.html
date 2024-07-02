@@ -4,11 +4,10 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Set ID</th>
-            <th>User ID</th>
+            <th>ID</th>
             <th>Workout ID</th>
+            <th>Exercise</th>
             <th>Date</th>
-            <th>Exercise ID</th>
             <th>Weight</th>
             <th>Repetitions</th>
             <th>RPE</th>
@@ -18,15 +17,14 @@
     <tbody>
         {% for set in sets %}
         <tr>
-            <td>{{ set.set_id }}</td>
-            <td>{{ set.user_id }}</td>
+            <td>{{ set.id }}</td>
             <td>{{ set.workout_id }}</td>
+            <td>{{ set.exercise_name }}</td>
             <td>{{ set.date }}</td>
-            <td>{{ set.exercise_id }}</td>
             <td>{{ set.weight }}</td>
             <td>{{ set.repetitions }}</td>
-            <td>{{ set.RPE }}</td>
-            <td>{{ set.RIR }}</td>
+            <td>{{ set.rpe or '-' }}</td>
+            <td>{{ set.rir or '-' }}</td>
         </tr>
         {% endfor %}
     </tbody>
