@@ -1,1 +1,3 @@
 *.db
+compressed_videos/
+uploaded_videos/
