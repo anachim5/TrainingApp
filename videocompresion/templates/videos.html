@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Uploaded Videos{% endblock %}
+
+{% block content %}
+    <h1>Uploaded Videos</h1>
+    {% for video in videos %}
+    <div class="video-item">
+        <img src="{{ video.thumbnail_path }}" alt="Thumbnail">
+        <div class="video-info">
+            <p>Workout ID: {{ video.workout_id }}</p>
+            <p>Set ID: {{ video.set_id }}</p>
+            <p><a href="{{ video.path }}" target="_blank">Watch Video</a></p>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Upload</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f9f9f9;
+        }
+        .container {
+            width: 90%;
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+        .drop-zone {
+            width: 100%;
+            height: 200px;
+            padding: 25px;
+            box-sizing: border-box;
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+        .drop-zone.dragover {
+            background-color: #f0f0f0;
+        }
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        button, input[type="number"] {
+            display: block;
+            width: calc(100% - 40px);
+            margin: 10px auto;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        input[type="file"] {
+            display: none;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let dropZone = document.getElementById('drop-zone');
+            let fileInput = document.getElementById('file-input');
+            let fileButton = document.getElementById('file-button');
+
+            dropZone.addEventListener('dragover', function (e) {
+                e.preventDefault();
+                dropZone.classList.add('dragover');
+            });
+
+            dropZone.addEventListener('dragleave', function (e) {
+                dropZone.classList.remove('dragover');
+            });
+
+            dropZone.addEventListener('drop', function (e) {
+                e.preventDefault();
+                dropZone.classList.remove('dragover');
+                fileInput.files = e.dataTransfer.files;
+                dropZone.textContent = fileInput.files[0].name;
+            });
+
+            dropZone.addEventListener('click', function (e) {
+                fileInput.click();
+            });
+
+            fileButton.addEventListener('click', function (e) {
+                fileInput.click();
+            });
+
+            fileInput.addEventListener('change', function (e) {
+                if (fileInput.files.length > 0) {
+                    dropZone.textContent = fileInput.files[0].name;
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Upload Video</a>
+        <a href="/videos">View Videos</a>
+    </div>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+    <div class="container">
+        <h1>Upload Video</h1>
+        <form action="/" method="post" enctype="multipart/form-data">
+            <label for="workout_id">Workout ID:</label>
+            <input type="number" id="workout_id" name="workout_id" required>
+            <label for="set_id">Set ID:</label>
+            <input type="number" id="set_id" name="set_id" required>
+            <div id="drop-zone" class="drop-zone">
+                Drag & Drop Video Here or Click to Upload
+            </div>
+            <input type="file" id="file-input" name="file" required>
+            <button type="button" id="file-button">Select Video</button>
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+</body>
+</html>

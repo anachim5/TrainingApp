@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trainingapp-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: trainingapp-backend
+  template:
+    metadata:
+      labels:
+        app: trainingapp-backend
+    spec:
+      containers:
+      - name: trainingapp-backend
+        image: anachim5/trainingapp-backend:latest
+        ports:
+        - containerPort: 7777

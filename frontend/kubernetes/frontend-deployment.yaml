@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trainingapp-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: trainingapp-frontend
+  template:
+    metadata:
+      labels:
+        app: trainingapp-frontend
+    spec:
+      containers:
+      - name: trainingapp-frontend
+        image: anachim/trainingapp-frontend:latest
+        ports:
+        - containerPort: 5000
